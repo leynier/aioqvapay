@@ -1,7 +1,7 @@
 site_name: Asynchronous QvaPay client for Python
 site_url: https://github.com/leynier/aioqvapay
 repo_url: https://github.com/leynier/aioqvapay
-edit_uri: "https://github.com/leynier/aioqvapay"/edit/main/docs
+edit_uri: "https://github.com/leynier/aioqvapay/edit/main/docs"
 
 theme:
   name: material
@@ -31,39 +31,15 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/leynier
       name: GitHub
-    - icon: fontawesome/brands/gitlab
-      link: https://gitlab.com/leynier
-      name: GitLab
     - icon: fontawesome/solid/code
       link: https://profile.codersrank.io/user/leynier
       name: Codersrank
-    - icon: fontawesome/brands/dev
-      link: https://dev.to/leynier
-      name: Dev.to
-    - icon: fontawesome/brands/stack-overflow
-      link: https://stackoverflow.com/users/8921443/leynier-gutiérrez-gonzález
-      name: Stack Overflow
-    - icon: fontawesome/brands/researchgate
-      link: https://www.researchgate.net/profile/Leynier_Gutierrez_Gonzalez
-      name: Research Gate
-    - icon: fontawesome/brands/medium
-      link: https://medium.com/@leynier
-      name: Medium
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/leynier41
       name: Twitter
     - icon: fontawesome/brands/telegram
       link: https://t.me/leynier
       name: Telegram
-    - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/leynier41
-      name: Facebook
-    - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/leynier41
-      name: Instagram
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/channel/UCT1z3Pckv-U31HhL31e--rw
-      name: Youtube
     - icon: fontawesome/solid/paper-plane
       link: mailto:leynier41@gmail.com
       name: Email
