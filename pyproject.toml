@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "aioqvapay"
+version = "0.0.1"
+description = "Asynchronous non official QvaPay client for asyncio and Python language."
+authors = ["Leynier Gutiérrez González <leynier41@gmail.com>"]
+homepage = "https://github.com/leynier/aioqvapay"
+repository = "https://github.com/leynier/aioqvapay"
+documentation = "https://github.com/leynier/aioqvapay"
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6.14"
+pydantic = "^1.8.2"
+aiohttp = {extras = ["speedups"], version = "^3.7.4"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+flake8 = "^3.9.2"
+black = "^21.7b0"
+isort = "^5.9.3"
+pytest-cov = "^2.12.1"
+pytest-asyncio = "^0.15.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
