@@ -13,7 +13,7 @@
 [![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fleynier.github.io/aioqvapay)](https://leynier.github.io/aioqvapay)
 [![GitHub contributors](https://img.shields.io/github/contributors/leynier/aioqvapay)](https://github.com/leynier/aioqvapay/graphs/contributors)
 
-[Asynchronous](https://docs.python.org/3/library/asyncio-task.html) non official [QvaPay](https://qvapay.com) client for [asyncio](https://docs.python.org/3/library/asyncio.html) and [Python language](https://www.python.org).
+[Asynchronous](https://docs.python.org/3/library/asyncio-task.html) non-official [QvaPay](https://qvapay.com) client for [asyncio](https://docs.python.org/3/library/asyncio.html) and [Python language](https://www.python.org).
 
 ## Features
 

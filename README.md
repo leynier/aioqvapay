@@ -15,7 +15,7 @@
 
 **IMPORTANT:** This library is still under development, the interface could be changed and it is not yet fully tested.
 
-[Asynchronous](https://docs.python.org/3/library/asyncio-task.html) **non official** [QvaPay](https://qvapay.com) client for [asyncio](https://docs.python.org/3/library/asyncio.html) and [Python language](https://www.python.org).
+[Asynchronous](https://docs.python.org/3/library/asyncio-task.html) **non-official** [QvaPay](https://qvapay.com) client for [asyncio](https://docs.python.org/3/library/asyncio.html) and [Python language](https://www.python.org).
 
 ## Features
 
