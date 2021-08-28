@@ -1,7 +1,9 @@
-from typing import Optional
+from typing import Union
+from uuid import UUID
 
 from aiohttp import ClientSession
 
+from .auth import QvaPayAuth
 from .models.info_model import InfoModel
 from .models.invoice_model import InvoiceModel
 from .models.paginated_transactions_model import PaginatedTransactionsModel
@@ -15,6 +17,10 @@ class QvaPay:
         self.app_secret = app_secret
         self.auth_params = {"app_id": app_id, "app_secret": app_secret}
         self.base_url = "https://qvapay.com/api/v1/"
+
+    @staticmethod
+    def from_auth(auth: QvaPayAuth) -> "QvaPay":
+        return QvaPay(auth.qvapay_app_id, auth.qvapay_app_secret)
 
     async def get_info(self) -> InfoModel:
         async with ClientSession() as session:
@@ -36,9 +42,9 @@ class QvaPay:
                 result = PaginatedTransactionsModel(**json)
                 return result
 
-    async def get_transaction(self, id: str) -> TransactionDetailModel:
+    async def get_transaction(self, id: Union[str, UUID]) -> TransactionDetailModel:
         async with ClientSession() as session:
-            url = self.base_url + f"transaction/{id}"
+            url = self.base_url + f"transaction/{str(id)}"
             params = self.auth_params
             async with session.get(url, params=params) as response:
                 validate_response(response)
@@ -48,15 +54,15 @@ class QvaPay:
 
     async def create_invoice(
         self,
-        amout: float,
+        amount: float,
         description: str,
-        remote_id: Optional[str] = None,
+        remote_id: str,
         signed: bool = False,
     ) -> InvoiceModel:
         async with ClientSession() as session:
             url = self.base_url + "create_invoice"
             params = {
-                "amout": str(amout),
+                "amount": str(amount),
                 "description": description,
                 "signed": str(int(signed)),
                 **self.auth_params,
