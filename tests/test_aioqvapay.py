@@ -1,8 +1,9 @@
 from random import random
 from uuid import uuid4
 
-from aioqvapay.v1 import QvaPayAuth, QvaPayClient, QvaPayException
 from pytest import mark as pytest_mark
+
+from aioqvapay.v1 import QvaPayAuth, QvaPayClient, QvaPayException
 
 
 @pytest_mark.asyncio
