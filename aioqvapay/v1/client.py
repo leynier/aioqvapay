@@ -1,7 +1,7 @@
 from typing import Union
 from uuid import UUID
 
-from httpx import AsyncClient
+from httpx import AsyncClient, get
 
 from .auth import QvaPayAuth
 from .models.info_model import InfoModel
@@ -22,7 +22,16 @@ class QvaPayClient:
     def from_auth(auth: QvaPayAuth) -> "QvaPayClient":
         return QvaPayClient(auth.qvapay_app_id, auth.qvapay_app_secret)
 
-    async def get_info(self) -> InfoModel:
+    def get_info(self) -> InfoModel:
+        url = self.base_url + "info"
+        params = self.auth_params
+        response = get(url, params=params)
+        validate_response(response)
+        json = response.json()
+        result = InfoModel(**json)
+        return result
+
+    async def get_info_async(self) -> InfoModel:
         async with AsyncClient() as session:
             url = self.base_url + "info"
             params = self.auth_params
@@ -32,7 +41,15 @@ class QvaPayClient:
             result = InfoModel(**json)
             return result
 
-    async def get_balance(self) -> float:
+    def get_balance(self) -> float:
+        url = self.base_url + "balance"
+        params = self.auth_params
+        response = get(url, params=params)
+        validate_response(response)
+        result = response.json()
+        return float(result)
+
+    async def get_balance_async(self) -> float:
         async with AsyncClient() as session:
             url = self.base_url + "balance"
             params = self.auth_params
@@ -41,7 +58,16 @@ class QvaPayClient:
             result = response.json()
             return float(result)
 
-    async def get_transactions(self, page: int = 1) -> PaginatedTransactionsModel:
+    def get_transactions(self, page: int = 1) -> PaginatedTransactionsModel:
+        url = self.base_url + "transactions"
+        params = {"page": str(page), **self.auth_params}
+        response = get(url, params=params)
+        validate_response(response)
+        json = response.json()
+        result = PaginatedTransactionsModel(**json)
+        return result
+
+    async def get_transactions_async(self, page: int = 1) -> PaginatedTransactionsModel:
         async with AsyncClient() as session:
             url = self.base_url + "transactions"
             params = {"page": str(page), **self.auth_params}
@@ -51,7 +77,18 @@ class QvaPayClient:
             result = PaginatedTransactionsModel(**json)
             return result
 
-    async def get_transaction(self, id: Union[str, UUID]) -> TransactionDetailModel:
+    def get_transaction(self, id: Union[str, UUID]) -> TransactionDetailModel:
+        url = self.base_url + f"transaction/{str(id)}"
+        params = self.auth_params
+        response = get(url, params=params)
+        validate_response(response)
+        json = response.json()
+        result = TransactionDetailModel(**json)
+        return result
+
+    async def get_transaction_async(
+        self, id: Union[str, UUID]
+    ) -> TransactionDetailModel:
         async with AsyncClient() as session:
             url = self.base_url + f"transaction/{str(id)}"
             params = self.auth_params
@@ -61,7 +98,29 @@ class QvaPayClient:
             result = TransactionDetailModel(**json)
             return result
 
-    async def create_invoice(
+    def create_invoice(
+        self,
+        amount: float,
+        description: str,
+        remote_id: str,
+        signed: bool = False,
+    ) -> InvoiceModel:
+        url = self.base_url + "create_invoice"
+        params = {
+            "amount": str(amount),
+            "description": description,
+            "signed": str(int(signed)),
+            **self.auth_params,
+        }
+        if remote_id:
+            params["remote_id"] = remote_id
+        response = get(url, params=params)
+        validate_response(response)
+        json = response.json()
+        result = InvoiceModel(**json)
+        return result
+
+    async def create_invoice_async(
         self,
         amount: float,
         description: str,
