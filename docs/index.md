@@ -13,13 +13,14 @@
 [![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fleynier.github.io/aioqvapay)](https://leynier.github.io/aioqvapay)
 [![GitHub contributors](https://img.shields.io/github/contributors/leynier/aioqvapay)](https://github.com/leynier/aioqvapay/graphs/contributors)
 
-[Asynchronous](https://docs.python.org/3/library/asyncio-task.html) non-official [QvaPay](https://qvapay.com) client for [asyncio](https://docs.python.org/3/library/asyncio.html) and [Python language](https://www.python.org).
+[Asynchronous](https://docs.python.org/3/library/asyncio-task.html) **non-official** [QvaPay](https://qvapay.com) client for [asyncio](https://docs.python.org/3/library/asyncio.html) and [Python language](https://www.python.org). This library is still under development, the interface could be changed
 
 ## Features
 
 * Response models with type hints annotated fully.
 * Also internal code have type hints annotated fully.
 * Asynchronous behavior thank you to [aiohttp](aiohttp.org).
+* Coverage 100%
 * Project collaborative and open source.
 
 For a **synchronous** behavior, <https://pypi.org/project/qvapay> can be used.
