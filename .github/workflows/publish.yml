@@ -17,6 +17,9 @@ jobs:
       with:
         poetry-version: 1.1.2
     - name: Run tests
+      env:
+          QVAPAY_APP_ID: ${{ secrets.QVAPAY_APP_ID }}
+          QVAPAY_APP_SECRET: ${{ secrets.QVAPAY_APP_SECRET }}
       run: make tests
     - name: Run build
       run: poetry build

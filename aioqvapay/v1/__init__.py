@@ -1,6 +1,6 @@
+from .auth import QvaPayAuth  # noqa: F401
+from .client import QvaPayClient  # noqa: F401
 from .exceptions import QvaPayException  # noqa: F401
-from .main import QvaPay  # noqa: F401
-from .models.app_model import AppModel  # noqa: F401
 from .models.info_model import InfoModel  # noqa: F401
 from .models.invoice_model import InvoiceModel  # noqa: F401
 from .models.owner_model import OwnerModel  # noqa: F401
