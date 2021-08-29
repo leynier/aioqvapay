@@ -1,11 +1,11 @@
 import random
 from uuid import uuid4
 
-import pytest
 from aioqvapay.v1 import QvaPayAuth, QvaPayClient, QvaPayException
+from pytest import mark as pytest_mark
 
 
-@pytest.mark.asyncio
+@pytest_mark.asyncio
 async def test_error():
     client = QvaPayClient("", "")
     try:
@@ -15,25 +15,25 @@ async def test_error():
         assert True
 
 
-@pytest.mark.asyncio
+@pytest_mark.asyncio
 async def test_get_info():
     client = QvaPayClient.from_auth(QvaPayAuth())
     await client.get_info()
 
 
-@pytest.mark.asyncio
+@pytest_mark.asyncio
 async def test_get_balance():
     client = QvaPayClient.from_auth(QvaPayAuth())
     await client.get_balance()
 
 
-@pytest.mark.asyncio
+@pytest_mark.asyncio
 async def test_create_invoice():
     client = QvaPayClient.from_auth(QvaPayAuth())
     await client.create_invoice(random.random(), "Invoice for testing", str(uuid4()))
 
 
-@pytest.mark.asyncio
+@pytest_mark.asyncio
 async def test_get_transactions():
     client = QvaPayClient.from_auth(QvaPayAuth())
     result = await client.get_transactions()
