@@ -19,7 +19,7 @@
 
 * Response models with type hints annotated fully.
 * Also internal code have type hints annotated fully.
-* Asynchronous behavior thank you to [aiohttp](aiohttp.org).
+* Asynchronous behavior thank you to [httpx](https://www.python-httpx.org).
 * Coverage 100%
 * Project collaborative and open source.
 
