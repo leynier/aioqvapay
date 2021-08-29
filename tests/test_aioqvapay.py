@@ -1,4 +1,4 @@
-import random
+from random import random
 from uuid import uuid4
 
 from aioqvapay.v1 import QvaPayAuth, QvaPayClient, QvaPayException
@@ -30,7 +30,7 @@ async def test_get_balance():
 @pytest_mark.asyncio
 async def test_create_invoice():
     client = QvaPayClient.from_auth(QvaPayAuth())
-    await client.create_invoice(random.random(), "Invoice for testing", str(uuid4()))
+    await client.create_invoice(random(), "Invoice for testing", str(uuid4()))
 
 
 @pytest_mark.asyncio
