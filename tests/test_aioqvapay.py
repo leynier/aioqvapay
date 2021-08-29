@@ -2,7 +2,17 @@ import random
 from uuid import uuid4
 
 import pytest
-from aioqvapay.v1 import QvaPay, QvaPayAuth
+from aioqvapay.v1 import QvaPay, QvaPayAuth, QvaPayException
+
+
+@pytest.mark.asyncio
+async def test_error():
+    client = QvaPay("", "")
+    try:
+        await client.get_info()
+        assert False
+    except QvaPayException:
+        assert True
 
 
 @pytest.mark.asyncio
