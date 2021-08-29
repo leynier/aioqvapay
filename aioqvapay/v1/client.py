@@ -11,7 +11,7 @@ from .models.transaction_detail_model import TransactionDetailModel
 from .utils import validate_response
 
 
-class QvaPay:
+class QvaPayClient:
     def __init__(self, app_id: str, app_secret: str) -> None:
         self.app_id = app_id
         self.app_secret = app_secret
@@ -19,8 +19,8 @@ class QvaPay:
         self.base_url = "https://qvapay.com/api/v1/"
 
     @staticmethod
-    def from_auth(auth: QvaPayAuth) -> "QvaPay":
-        return QvaPay(auth.qvapay_app_id, auth.qvapay_app_secret)
+    def from_auth(auth: QvaPayAuth) -> "QvaPayClient":
+        return QvaPayClient(auth.qvapay_app_id, auth.qvapay_app_secret)
 
     async def get_info(self) -> InfoModel:
         async with ClientSession() as session:
@@ -31,6 +31,15 @@ class QvaPay:
                 json = await response.json()
                 result = InfoModel(**json)
                 return result
+
+    async def get_balance(self) -> float:
+        async with ClientSession() as session:
+            url = self.base_url + "balance"
+            params = self.auth_params
+            async with session.get(url, params=params) as response:
+                validate_response(response)
+                result = await response.json()
+                return float(result)
 
     async def get_transactions(self, page: int = 1) -> PaginatedTransactionsModel:
         async with ClientSession() as session:
