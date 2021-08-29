@@ -1,4 +1,4 @@
-site_name: Asynchronous QvaPay client for Python
+site_name: QvaPay client for Python
 site_url: https://github.com/leynier/aioqvapay
 repo_url: https://github.com/leynier/aioqvapay
 edit_uri: "https://github.com/leynier/aioqvapay/edit/main/docs"

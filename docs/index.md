@@ -1,4 +1,4 @@
-# Asynchronous (and also synchronous) QvaPay client for Python
+# QvaPay client for Python
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Test](https://github.com/leynier/aioqvapay/workflows/CI/badge.svg)](https://github.com/leynier/aioqvapay/actions?query=workflow%3ACI)
