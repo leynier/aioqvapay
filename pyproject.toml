@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aioqvapay"
-version = "0.3.1"
+version = "0.3.2"
 description = "Asynchronous and also synchronous non-official QvaPay client for asyncio and Python language."
 authors = ["Leynier Gutiérrez González <leynier41@gmail.com>"]
 homepage = "https://leynier.github.io/aioqvapay"
